@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load leaflet_tags %}
+<html>
+<head>
+<title>First GeoDjango Application</title>
+{% leaflet_js %}
+{% leaflet_css %}
+<script  src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>My First Map</h2>
+{% leaflet_map "main" callback="yadjango" %}
+<script type="text/javascript">
+function yadjango(map, options){
+	var hempire = '{% url "data"%}';
+	$.getJSON(hempire, function(data){
+		L.geoJson(data).addTo(map);
+	})
+}
+</script>
+</body>
+</html>

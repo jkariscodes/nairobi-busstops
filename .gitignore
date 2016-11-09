@@ -1,0 +1,10 @@
+/onyeshamap/data
+.zip
+*.cpg
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.shp
+*.shx
+*.xml
