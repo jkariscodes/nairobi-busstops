@@ -3,6 +3,26 @@ from django.db import models
 from django.contrib.gis.db import models
 
 # Create your models here.
+
+class CCTV(models.Model):
+    objectid = models.IntegerField()
+    type = models.CharField(max_length=254)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    eastings = models.FloatField()
+    northings = models.FloatField()
+    st_name = models.CharField(max_length=254)
+    descriptio = models.CharField(max_length=254)
+    geom = models.MultiPointField(srid=32737)
+    objects = models.GeoManager()
+
+    def __str__(self):
+        return self.type
+
+    class Meta:
+        verbose_name = "CCTV Data"
+ 
+ 
 class Bus_Stops(models.Model):
     _id = models.IntegerField()
     stop_id = models.CharField(max_length=254)
@@ -41,20 +61,3 @@ class Bus_Stops(models.Model):
     	verbose_name = "Bus Stops"
 
 
-class CCTV(models.Model):
-    objectid = models.IntegerField()
-    type = models.CharField(max_length=254)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
-    eastings = models.FloatField()
-    northings = models.FloatField()
-    st_name = models.CharField(max_length=254)
-    descriptio = models.CharField(max_length=254)
-    geom = models.MultiPointField(srid=32737)
-    objects = models.GeoManager()
-
-    def __str__(self):
-    	return self.type
-
-    class Meta:
-    	verbose_name = "CCTV Data"

@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'mywebgis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'mygisdb',
+        'NAME': 'geodjango',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
@@ -108,3 +108,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER':(-1.281,36.822),
+    'DEFAULT_ZOOM': 15,
+    'MIN_ZOOM': 5,
+    'MAX_ZOOM': 20,
+}

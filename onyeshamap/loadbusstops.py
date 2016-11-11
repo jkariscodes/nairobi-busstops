@@ -33,7 +33,7 @@ bus_stops_mapping = {
     'geom' : 'MULTIPOINT',
 }
 
-stop_shp = os.path.abspath(os.path.join(os.path.dirname(__file__),'data/Bus Stops.shp'))
+stop_shp = os.path.abspath(os.path.join(os.path.dirname(__file__),'data/Bus_Stops.shp'))
 def run(verbose=True):
     yangu = LayerMapping(Bus_Stops, stop_shp, bus_stops_mapping, )
     yangu.save(strict=True, verbose=verbose)

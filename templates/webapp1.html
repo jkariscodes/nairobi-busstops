@@ -1,22 +1,30 @@
-<!DOCTYPE html>
 {% load leaflet_tags %}
 <html>
 <head>
 <title>First GeoDjango Application</title>
 {% leaflet_js %}
 {% leaflet_css %}
-<script  src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script  src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<style>
+	.leaflet-container {height: 100%; }
+</style>
 </head>
 <body>
 <h2>My First Map</h2>
-{% leaflet_map "main" callback="yadjango" %}
-<script type="text/javascript">
-function yadjango(map, options){
-	var hempire = '{% url "data"%}';
-	$.getJSON(hempire, function(data){
-		L.geoJson(data).addTo(map);
-	})
-}
-</script>
+<div style="height: 600px ">
+{% leaflet_map "main" callback="main_map_init" %}
+</div>
+
+    <script type="text/javascript">
+        function main_map_init (map, options) {
+            var dataurl = '{% url "data" %}';
+            // Download GeoJSON via Ajax
+            $.getJSON(dataurl, function (data) {
+                // Add GeoJSON layer
+                L.geoJson(data).addTo(map);
+            });
+        }
+    </script>
+
 </body>
 </html>
