@@ -1,6 +1,8 @@
 # djangoleaflet webapp
 
-Simple Web GIS application developed using django and leafletJS
+A simple Web GIS application developed in Django and Leaflet
+
+First, download and install PostgreSQL and Python
 
 #Repo
 Clone the repository 
