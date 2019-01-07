@@ -39,9 +39,9 @@ navigate to http://localhost:8000/data to view the raw GeoJSON data
 
 Leaflet map showing bus stops locations can be viewed at http://localhost:8000
 
-![Alt text](/../https://github.com/joehene/djangoleaflet/onyeshamap/map_display.png?raw=true "Map")
+![Alt text](https://github.com/joehene/djangoleaflet/onyeshamap/map_display.png?raw=true "Map")
 
-![Alt text](/../https://github.com/joehene/djangoleaflet/onyeshamap/geojson_raw.png?raw=true "GeoJSON")
+![Alt text](https://github.com/joehene/djangoleaflet/onyeshamap/geojson_raw.png?raw=true "GeoJSON")
 
 ## Built With
 
