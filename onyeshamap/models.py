@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from django.db import models
+from django.db.models import Manager as GeoManager
 from django.contrib.gis.db import models
 
 # Create your models here.
@@ -33,7 +33,7 @@ class Bus_Stops(models.Model):
     route_20 = models.CharField(max_length=254)
     route_21 = models.CharField(max_length=254)
     geom = models.MultiPointField(srid=32737)
-    objects = models.GeoManager()
+    objects = GeoManager()
 
     def __str__(self):
     	return self.stop_name
