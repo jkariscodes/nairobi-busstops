@@ -2,7 +2,7 @@ astroid==2.1.0
 bleach==3.0.2
 dj-database-url==0.5.0
 dj-static==0.0.6
-Django==2.1.5
+Django
 django-geojson==2.12.0
 django-leaflet==0.24.0
 gunicorn==19.9.0
