@@ -6,7 +6,7 @@ First, download and install PostgreSQL and Python
 
 ### Cloning the Repository
 Clone the repository 
->> git clone https://github.com/joehene/djangoleaflet.git
+>> git clone https://github.com/jkariukidev/djangoleaflet.git
 
 >> cd djangoleaflet
 
