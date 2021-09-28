@@ -1,6 +1,7 @@
 # djangoleaflet webapp 
 
-A simple Web GIS application developed in Django and Leaflet. This app renders 
+A simple Web GIS application developed in Django and Leaflet. This app renders busstops from the database and parses
+them into GeoJSON which are then displayed in the web map.
 
 First, download and install PostgreSQL and Python
 
@@ -13,8 +14,7 @@ Clone the repository
 Install python packages using pip
 >> pip install -r requirements.txt
 
-### Configuring Django Project 
->> python manage.py createsuperuser
+### Configuring Django Project
 
 >> python manage.py runserver
 
@@ -23,6 +23,10 @@ Install python packages using pip
 >> python manage.py makemigrations
 
 >> python manage.py migrate
+
+### Create admin user
+
+>> python manage.py createsuperuser
 
 ### Adding Models from Dataset
 >> python manage.py shell
