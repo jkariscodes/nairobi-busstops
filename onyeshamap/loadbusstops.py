@@ -1,6 +1,6 @@
 import os
 from django.contrib.gis.utils import LayerMapping
-from .models import Bus_Stops
+from .models import BusStops
 
 bus_stops_mapping = {
     '_id' : 'Id',
@@ -35,5 +35,5 @@ bus_stops_mapping = {
 
 stop_shp = os.path.abspath(os.path.join(os.path.dirname(__file__),'data/Bus_Stops.shp'))
 def run(verbose=True):
-    yangu = LayerMapping(Bus_Stops, stop_shp, bus_stops_mapping, )
+    yangu = LayerMapping(BusStops, stop_shp, bus_stops_mapping, )
     yangu.save(strict=True, verbose=verbose)

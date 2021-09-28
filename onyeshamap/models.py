@@ -2,9 +2,10 @@ from __future__ import unicode_literals
 from django.db.models import Manager as GeoManager
 from django.contrib.gis.db import models
 
+
 # Create your models here.
 
-class Bus_Stops(models.Model):
+class BusStops(models.Model):
     _id = models.IntegerField()
     stop_id = models.CharField(max_length=254)
     stop_name = models.CharField(max_length=254)
@@ -36,9 +37,7 @@ class Bus_Stops(models.Model):
     objects = GeoManager()
 
     def __str__(self):
-    	return self.stop_name
+        return self.stop_name
 
     class Meta:
-    	verbose_name = "Bus Stops"
-
-
+        verbose_name = "Bus Stops"
