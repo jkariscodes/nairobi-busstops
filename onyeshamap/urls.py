@@ -1,10 +1,12 @@
-from django.conf.urls import include, url
-from django.views.generic import TemplateView
+from django.urls import path
+from .views import WebMapView
 from djgeojson.views import GeoJSONLayerView
 from .models import BusStops
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='webapp1.html'), name='home'),
-    url(r'^data/$', GeoJSONLayerView.as_view(model=BusStops, properties=('stop_name', 'stop_id', 'stop_lat', 'stop_lon',
-                                                                         'route_1')), name='data'),
+    path('',
+         WebMapView.as_view(), name='home'),
+    path('data/',
+         GeoJSONLayerView.as_view(model=BusStops, properties=(
+             'stop_name', 'stop_id', 'stop_lat', 'stop_lon', 'route_1')), name='data'),
 ]

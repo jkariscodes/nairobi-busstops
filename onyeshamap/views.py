@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+
+class WebMapView(TemplateView):
+    """
+    View for the web map.
+    """
+    template_name = 'webmap.html'

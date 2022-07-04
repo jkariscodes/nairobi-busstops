@@ -1,0 +1,18 @@
+{% load static %}
+{% load leaflet_tags %}
+<html>
+<head>
+    {% block title %}<title>Nairobi Bus Stops</title>{% endblock %}
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h2>Nairobi Bus Stops</h2>
+    <div>
+        {% leaflet_map "main" callback="main_map_init" %}
+    </div>
+    <script  src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
