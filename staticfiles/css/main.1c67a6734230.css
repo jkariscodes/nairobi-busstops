@@ -1,0 +1,9 @@
+.leaflet-container {
+  height: 100%;
+}
+
+#gh-image {
+  align-content: end;
+  width: 250;
+  height: 82;
+}

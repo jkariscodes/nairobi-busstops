@@ -7,13 +7,18 @@
     {% leaflet_js %}
     {% leaflet_css %}
     <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'js/main.js' %}"></script>
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h2>Nairobi Bus Stops</h2>
+    <div class="navbar">
+        <h2 style="text-align: center">Nairobi Bus Stops</h2>
+        <a href="https://josephkariuki.com">Developer Profile</a> &nbsp;
+        <a href="https://github.com/jkariukidev/onyeshamap/" target="_blank">Code on GitHub</a>
+    </div>
+    <hr>
     <div>
         {% leaflet_map "main" callback="main_map_init" %}
     </div>
-    <script  src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
