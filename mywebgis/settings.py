@@ -70,11 +70,11 @@ WSGI_APPLICATION = 'mywebgis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': 0000,
+        'NAME': 'gisdb',
+        'USER': 'gisadmin',
+        'PASSWORD': 'G!$@dm!n22',
+        'HOST': 'localhost',
+        'PORT': 5499,
     }
 }
 
@@ -102,8 +102,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (-1.281, 36.822),
-    'DEFAULT_ZOOM': 15,
+    'DEFAULT_CENTER': (-1.287, 36.822),
+    'DEFAULT_ZOOM': 16,
     'MIN_ZOOM': 5,
     'MAX_ZOOM': 20,
 }
