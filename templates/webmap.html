@@ -4,11 +4,15 @@
 <head>
     {% block title %}<title>Nairobi Bus Stops</title>{% endblock %}
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    {% leaflet_js %}
     {% leaflet_css %}
-    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script  src="{% static 'js/main.js' %}"></script>
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/MarkerCluster.css' %}" rel="stylesheet">
+    <link href="{% static 'css/MarkerCluster.Default.css' %}" rel="stylesheet">
+    <!-- JS -->
+    {% leaflet_js %}
+    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'js/leaflet.markercluster-src.js' %}"></script>
+    <script  src="{% static 'js/main.js' %}"></script>
 </head>
 <body>
     <div class="navbar">
