@@ -3,7 +3,9 @@ import os
 
 import dj_database_url
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
@@ -19,7 +21,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
 
 # Application definition
 

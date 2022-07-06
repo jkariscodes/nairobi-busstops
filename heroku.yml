@@ -10,4 +10,4 @@ release:
     - python manage.py migrate
   image: web
 run:
-  web: gunicorn mywebsite.wsgi
+  web: gunicorn mywebgis.wsgi
