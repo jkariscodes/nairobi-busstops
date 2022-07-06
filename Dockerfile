@@ -1,6 +1,10 @@
 # Base image
 FROM python:3.8.13-slim-buster
 
+# Dependency for psycopg3
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install -y libgdal-dev build-essential libpq-dev
+
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -9,7 +13,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /onyesha
 
 # Installing requirements
-COPY requirements.txt requirements.txt /onyesha/
+COPY requirements.txt /onyesha/
 
 RUN pip install -r requirements.txt
 
