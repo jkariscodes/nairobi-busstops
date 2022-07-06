@@ -34,8 +34,13 @@ INSTALLED_APPS = (
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+
+    # Third-party
     'leaflet',
     'djgeojson',
+    'storages',
+
+    # Local
     'onyeshamap',
 )
 
@@ -102,10 +107,11 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if ENVIRONMENT == 'development':
+    STATIC_URL = 'static/'
+    STATICFILES_DIRS = [BASE_DIR / 'static']
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-1.287, 36.822),
@@ -117,6 +123,18 @@ LEAFLET_CONFIG = {
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 if ENVIRONMENT == 'production':
+    # Static file management using AWS (Feel free to use other)
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
+    AWS_LOCATION = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # DEFAULT_FILE_STORAGE = 'mywebgis.storage_backends.MediaStorage'
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
     # SSL Settings
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
