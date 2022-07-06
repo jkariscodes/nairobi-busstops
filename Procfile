@@ -1,1 +1,0 @@
-web: gunicorn mywebgis.wsgi --log-file -
