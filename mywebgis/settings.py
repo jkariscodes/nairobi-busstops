@@ -112,6 +112,8 @@ if ENVIRONMENT == 'development':
     STATICFILES_DIRS = [BASE_DIR / 'static']
     STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-1.287, 36.822),
@@ -130,7 +132,7 @@ if ENVIRONMENT == 'production':
     AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
     AWS_LOCATION = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # DEFAULT_FILE_STORAGE = 'mywebgis.storage_backends.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'mywebgis.storage_backends.MediaStorage'
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
