@@ -1,28 +1,12 @@
+{% extends '_base.html' %}
+
 {% load static %}
+
 {% load leaflet_tags %}
-<html>
-<head>
-    {% block title %}<title>Nairobi Bus Stops</title>{% endblock %}
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    {% leaflet_css %}
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
-    <link href="{% static 'css/markercluster.css' %}" rel="stylesheet">
-    <link href="{% static 'css/markercluster-default.css' %}" rel="stylesheet">
-    <!-- JS -->
-    {% leaflet_js %}
-    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script  src="{% static 'js/leaflet.markercluster-src.js' %}"></script>
-    <script  src="{% static 'js/main.js' %}"></script>
-</head>
-<body>
-    <div class="navbar">
-        <h2 style="text-align: center">Nairobi Bus Stops</h2>
-        <a href="https://josephkariuki.com">Developer Profile</a> &nbsp;
-        <a href="https://github.com/jkariukidev/onyeshamap/" target="_blank">Code on GitHub</a>
-    </div>
-    <hr>
-    <div>
+
+{% block title %}Nairobi Bus Stops | {{ block.super }}{% endblock %}
+{% block content %}
+    <div class="map-area">
         {% leaflet_map "main" callback="main_map_init" %}
     </div>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+
+{% load leaflet_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}OnyeshaMap{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% leaflet_css %}
+    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'js/main.js' %}"></script>
+    {% leaflet_js %}
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h2 style="text-align: center">Nairobi Bus Stops</h2>
+            <a href="https://josephkariuki.com">Developer Profile</a> &nbsp;
+        </div>
+        <hr>
+    </header>
+    <div class="ghfork">
+        <a href="https://github.com/jkariukidev/onyeshamap/fork">
+            <img src="{% static 'img/gh-fork.png' %}" alt="Fork me on GitHub">
+        </a>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

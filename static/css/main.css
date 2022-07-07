@@ -14,12 +14,13 @@
   }
 }
 
-.leaflet-container {
-  height: 100%;
+.map-area #main {
+    height: 100vh;
 }
 
-.gh-image {
-  align-content: end;
-  width: 125px;
-  height: 41px;
+div.ghfork img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
