@@ -1,4 +1,4 @@
-# OnyeshaMap WebGIS App 
+# Nairobi Bus Stops WebMap 
 
 ![image](https://user-images.githubusercontent.com/23359514/183810750-2aaad2ef-1f9c-4637-a572-f1cf353e12c7.png)
 
