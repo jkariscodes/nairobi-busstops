@@ -3,7 +3,7 @@ backports.zoneinfo==0.2.1
 boto3==1.24.24
 botocore==1.27.24
 dj-database-url==0.5.0
-Django==4.0.6
+Django==4.0.7
 django-geojson==3.2.1
 django-leaflet==0.28.3
 django-storages==1.12.3
