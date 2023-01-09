@@ -56,10 +56,6 @@ Raw JSON data can be viewed at http://localhost:8000/data
 
 Map can be viewed at http://localhost:8000
 
-![Alt text](https://github.com/joehene/djangoleaflet/blob/master/onyeshamap/map_display.png?raw=true "Map")
-
-![Alt text](https://github.com/joehene/djangoleaflet/blob/master/onyeshamap/geojson_raw.png?raw=true "GeoJSON")
-
 ## Docker Deployment
 ### Environment variables
 After cloning the project and assuming docker is installed, create and environment variable file. A [sample .env file]()
