@@ -111,7 +111,3 @@ Contact me via:
 * [Docker Documentation](https://docs.docker.com/) - DevOps centric especially for development and deployment.
 * [Docker Compose Django Example](https://docs.docker.com/samples/django/) - Deployment centric specific to Django projects.
 * [GeoNode Documentation](https://docs.geonode.org/en/master/index.html) - WebGIS development and deployment. 
-
-
-
-
