@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+
+  database:
+    image: geonode/postgis:13
+    container_name: db4${COMPOSE_PROJECT_NAME}
+    environment:
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - GIS_DB_NAME=${GIS_DB_NAME}
+        - GIS_DB_USER=${GIS_DB_USER}
+        - GIS_DB_PASSWORD=${GIS_DB_PASSWORD}
+    healthcheck:
+        test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "$POSTGRES_USER" ]
+        timeout: 40s
+        interval: 10s
+        retries: 10
+    volumes:
+        - ./initdb:/docker-entrypoint-initdb.d/
+        - postgres_data_dev:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    restart: always
+
+  web:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: web4${COMPOSE_PROJECT_NAME}
+    command: python /home/geouser/nairobi_busstops/manage.py runserver 0.0.0.0:8000
+    volumes:
+        - static_volume:/home/geouser/nairobi_busstops/staticfiles
+        - media_volume:/home/geouser/nairobi_busstops/mediafiles
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+        - DJANGO_SETTINGS_MODULE=mywebgis.settings.prod
+    depends_on:
+      database:
+          condition: service_healthy
+    restart: always
+
+volumes:
+    postgres_data_dev:
+    static_volume:
+    media_volume:

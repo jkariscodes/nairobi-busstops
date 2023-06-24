@@ -20,6 +20,8 @@ psycopg = "~=3.1.9"
 psycopg-binary = "~=3.1.9"
 django-geojson = "~=4.0.0"
 django-storages = "~=1.13.2"
+boto3 = "~=1.26.160"
+django-cloudinary-storage = "~=0.3.0"
 
 [dev-packages]
 black = "~=23.3.0"
