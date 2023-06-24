@@ -12,9 +12,6 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 ENVIRONMENT = "development"
 
-# GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
-# GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
-
 SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = True

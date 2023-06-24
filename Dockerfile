@@ -1,22 +1,43 @@
 # Base image
-FROM python:3.8.13-slim-buster
+FROM python:3.10.12-slim-buster
 
-# Dependency for psycopg3
+# install dependencies for psycopg3
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y libgdal-dev build-essential libpq-dev
 
-# Environment variables
+# environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Working directory
-WORKDIR /onyesha
+# create directory for the app user
+RUN mkdir -p /home/geouser
 
-# Installing requirements
-COPY requirements.txt /onyesha/
+# don't run as root therefore create non-root user
+RUN groupadd --gid 1001 geouser && \
+    useradd --uid 1001 --gid geouser --home /home/geouser geouser
 
-RUN pip install -r requirements.txt
+# install pipenv
+RUN pip install pipenv
 
+# create user, project and static files directories
+ENV HOME=/home/geouser
+ENV APP_HOME=/home/geouser/nairobi_busstops
+RUN mkdir $APP_HOME
+RUN mkdir $APP_HOME/staticfiles
+RUN mkdir $APP_HOME/mediafiles
+WORKDIR $APP_HOME
 
-# Copy project files and directories
-COPY . /onyesha/
+# Copy pipenv files
+COPY Pipfile Pipfile.lock $APP_HOME
+# Install development packages
+RUN pipenv install --system
+
+# copy project files and sub-directories
+COPY . $APP_HOME
+
+# change ownership of working directory
+RUN chown -R geouser:geouser $APP_HOME
+
+# change to the app user
+USER geouser
+
