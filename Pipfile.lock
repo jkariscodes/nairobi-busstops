@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6c150559512ae2cb37e776633b1164708b1834a3458da4a56d025806ad3d82e4"
+            "sha256": "89ccce4476d2676184260cbd712938574b314e67711eeb3ae8b404625b251863"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -268,6 +268,14 @@
             "index": "pypi",
             "version": "==23.2"
         },
+        "django-geojson": {
+            "hashes": [
+                "sha256:0671805adb329137b981be2e3080a81cd6ea413e7e370872d608da8a655d1b9b",
+                "sha256:7c2085ef0d4b20f8538dcecb74c614369f5a076e9512c7516699a54c1639cb00"
+            ],
+            "index": "pypi",
+            "version": "==4.0.0"
+        },
         "django-leaflet": {
             "hashes": [
                 "sha256:2f6dc8c7187fd22e62b6f2b7b42eed86920f81bec312aa654981ebe5bc8e0866",
@@ -275,6 +283,14 @@
             ],
             "index": "pypi",
             "version": "==0.29.0"
+        },
+        "django-storages": {
+            "hashes": [
+                "sha256:31dc5a992520be571908c4c40d55d292660ece3a55b8141462b4e719aa38eab3",
+                "sha256:cbadd15c909ceb7247d4ffc503f12a9bec36999df8d0bef7c31e57177d512688"
+            ],
+            "index": "pypi",
+            "version": "==1.13.2"
         },
         "djangorestframework": {
             "hashes": [
