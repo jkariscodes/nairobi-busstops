@@ -5,48 +5,57 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='BusStops',
+            name="BusStops",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('_id', models.IntegerField()),
-                ('stop_id', models.CharField(max_length=254)),
-                ('stop_name', models.CharField(max_length=254)),
-                ('stop_lat', models.CharField(max_length=254)),
-                ('stop_lon', models.CharField(max_length=254)),
-                ('parent_sta', models.CharField(max_length=254, null=True)),
-                ('route_1', models.CharField(max_length=254, null=True)),
-                ('route_2', models.CharField(max_length=254, null=True)),
-                ('route_3', models.CharField(max_length=254, null=True)),
-                ('route_4', models.CharField(max_length=254, null=True)),
-                ('route_5', models.CharField(max_length=254, null=True)),
-                ('route_6', models.CharField(max_length=254, null=True)),
-                ('route_7', models.CharField(max_length=254, null=True)),
-                ('route_8', models.CharField(max_length=254, null=True)),
-                ('route_9', models.CharField(max_length=254, null=True)),
-                ('route_10', models.CharField(max_length=254, null=True)),
-                ('route_11', models.CharField(max_length=254, null=True)),
-                ('route_12', models.CharField(max_length=254, null=True)),
-                ('route_13', models.CharField(max_length=254, null=True)),
-                ('route_14', models.CharField(max_length=254, null=True)),
-                ('route_15', models.CharField(max_length=254, null=True)),
-                ('route_16', models.CharField(max_length=254, null=True)),
-                ('route_17', models.CharField(max_length=254, null=True)),
-                ('route_18', models.CharField(max_length=254, null=True)),
-                ('route_19', models.CharField(max_length=254, null=True)),
-                ('route_20', models.CharField(max_length=254, null=True)),
-                ('route_21', models.CharField(max_length=254, null=True)),
-                ('geom', django.contrib.gis.db.models.fields.MultiPointField(srid=32737)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("_id", models.IntegerField()),
+                ("stop_id", models.CharField(max_length=254)),
+                ("stop_name", models.CharField(max_length=254)),
+                ("stop_lat", models.CharField(max_length=254)),
+                ("stop_lon", models.CharField(max_length=254)),
+                ("parent_sta", models.CharField(max_length=254, null=True)),
+                ("route_1", models.CharField(max_length=254, null=True)),
+                ("route_2", models.CharField(max_length=254, null=True)),
+                ("route_3", models.CharField(max_length=254, null=True)),
+                ("route_4", models.CharField(max_length=254, null=True)),
+                ("route_5", models.CharField(max_length=254, null=True)),
+                ("route_6", models.CharField(max_length=254, null=True)),
+                ("route_7", models.CharField(max_length=254, null=True)),
+                ("route_8", models.CharField(max_length=254, null=True)),
+                ("route_9", models.CharField(max_length=254, null=True)),
+                ("route_10", models.CharField(max_length=254, null=True)),
+                ("route_11", models.CharField(max_length=254, null=True)),
+                ("route_12", models.CharField(max_length=254, null=True)),
+                ("route_13", models.CharField(max_length=254, null=True)),
+                ("route_14", models.CharField(max_length=254, null=True)),
+                ("route_15", models.CharField(max_length=254, null=True)),
+                ("route_16", models.CharField(max_length=254, null=True)),
+                ("route_17", models.CharField(max_length=254, null=True)),
+                ("route_18", models.CharField(max_length=254, null=True)),
+                ("route_19", models.CharField(max_length=254, null=True)),
+                ("route_20", models.CharField(max_length=254, null=True)),
+                ("route_21", models.CharField(max_length=254, null=True)),
+                (
+                    "geom",
+                    django.contrib.gis.db.models.fields.MultiPointField(srid=32737),
+                ),
             ],
             options={
-                'verbose_name': 'Bus Stops',
+                "verbose_name": "Bus Stops",
             },
         ),
     ]

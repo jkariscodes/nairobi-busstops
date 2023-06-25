@@ -5,4 +5,5 @@ class WebMapView(TemplateView):
     """
     View for the web map.
     """
-    template_name = 'webmap.html'
+
+    template_name = "webmap.html"
