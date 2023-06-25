@@ -209,6 +209,14 @@ For several other commands, view them in the [Makefile](Makefile)
   - Static files assets management using services; Cloudinary, AWS S3 etc.
 
 
+## Tests
+Unit tests are a fundamental part of the testing framework that allows you to verify the correctness of your code at a granular level. Unit tests focus on testing individual components, such as models, views, forms, and utility functions, in isolation to ensure they behave as expected.
+
+Check the [project test](onyeshamap/tests.py) for more. To execute tests, use the following command:
+```shell
+   make test-project
+```
+
 ## 💳License
 
 <!-- Mention your project licence here and also link to that file -->
