@@ -14,12 +14,9 @@ A simple Web GIS application developed in Django and Leaflet. This app renders b
   - [Installation](#installation)
   - [Usage](#usage)
   - [Tests](#tests)
-  - [Deployment](#deployment)
-  - [Licenses](#license)
-  - [Contributing](#contributing)
-  - [Authors](#authors)
-  - [Resources](#resources)
-  - [Acknowledgement](#acknowledgement)
+  - [License](#license)
+  - [Questions](#questions)
+  - [References](#references)
 
 ## Description
 This is a simple web geographic information systems (GIS) application that demonstrates full-stack GIS web development using Django, Leaflet, vanilla JavaScript, CSS and HTML and one that can be forked and customized to your preference.
@@ -42,7 +39,7 @@ Features present in this project include:
 6. Code formatting / linting support.
 7. Unit testing (To be done).
 
-## ⛏️Software
+## Software
 
 ### Software and Tools
 
