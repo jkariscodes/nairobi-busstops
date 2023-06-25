@@ -1,0 +1,16 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$F3TLclUjPlOZHzqZOOKpvs$e4M7JgJSiToAfTiFUrUDZlj0wpc0Drjvl8xWgk3+JrU=",
+            "is_superuser": true,
+            "username": "geouser",
+            "first_name": "Geo",
+            "last_name": "Admin",
+            "email": "geouser@geomail.com",
+            "is_staff": true,
+            "is_active": true
+        }
+    }
+]

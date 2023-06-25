@@ -30,7 +30,7 @@ WORKDIR $APP_HOME
 # Copy pipenv files
 COPY Pipfile Pipfile.lock $APP_HOME
 # Install development packages
-RUN pipenv install --system
+RUN pipenv install --dev --system
 
 # copy project files and sub-directories
 COPY . $APP_HOME
