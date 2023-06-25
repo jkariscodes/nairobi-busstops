@@ -41,6 +41,7 @@ help:
 	@echo -e "$(CYAN)make logs-dev$(COFF)         - Shows server logs in development"
 	@echo -e "$(CYAN)make logs-interactive$(COFF) - Shows interactive server logs"
 	@echo -e "$(CYAN)make logs-interactive-dev$(COFF) - Shows interactive server logs in development"
+	@echo -e "$(CYAN)make test-project$(COFF)     - Runs automatic tests on the project"
 	@echo -e "$(CYAN)make coverage-django$(COFF)  - Runs automatic code coverage check for Python"
 	@echo -e "$(CYAN)make lint$(COFF)             - Runs code quality check for Python"
 	@echo -e "$(CYAN)make lint-fix$(COFF)         - Fixes code quality for Python in entire project"
@@ -150,6 +151,10 @@ logs-interactive:
 logs-interactive-dev:
 	@echo -e "$(CYAN)Checking logs interactively:$(COFF)"
 	@docker-compose -f docker-compose-dev.yml logs -f
+
+test-project:
+	@echo -e "$(CYAN)Checking logs interactively:$(COFF)"
+	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py test
 
 coverage-django:
 	@echo -e "$(CYAN)Running automatic code coverage check for Python:$(COFF)"
