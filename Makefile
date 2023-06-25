@@ -27,7 +27,9 @@ help:
 	@echo -e "$(CYAN)make makemigrations-dev$(COFF) - Runs django's makemigrations command in the development container"
 	@echo -e "$(CYAN)make migrate$(COFF)          - Runs django's migrate command in the production container"
 	@echo -e "$(CYAN)make migrate-dev$(COFF)      - Runs django's migrate command in the development container"
-	@echo -e "$(CYAN)make load-user-data$(COFF)   - Loads initial data from Django user accounts app's fixtures"
+	@echo -e "$(CYAN)make load-admin-data-dev$(COFF)   - Loads initial data from Django user accounts app's fixtures"
+	@echo -e "$(CYAN)make load-admin-data$(COFF)   - Loads initial data from Django user accounts app's fixtures"
+	@echo -e "$(CYAN)make load-geospatial-data-dev$(COFF)  - Loads GIS data data from Django website app's fixtures"
 	@echo -e "$(CYAN)make load-geospatial-data$(COFF)  - Loads GIS data data from Django website app's fixtures"
 	@echo -e "$(CYAN)make superuser$(COFF)        - Runs django's createsuperuser command in the production container"
 	@echo -e "$(CYAN)make superuser-dev$(COFF)    - Runs django's createsuperuser command in the development container"
@@ -42,10 +44,6 @@ help:
 	@echo -e "$(CYAN)make coverage-django$(COFF)  - Runs automatic code coverage check for Python"
 	@echo -e "$(CYAN)make lint$(COFF)             - Runs code quality check for Python"
 	@echo -e "$(CYAN)make lint-fix$(COFF)         - Fixes code quality for Python in entire project"
-	@echo -e "$(CYAN)make test-project$(COFF)     - Runs automatic tests on the entire project"
-	@echo -e "$(CYAN)make test-website$(COFF)     - Runs automatic tests on website app"
-	@echo -e "$(CYAN)make test-users$(COFF)       - Runs automatic tests on users app"
-
 
 shell:
 	@echo -e "$(CYAN)Starting Django shell prompt:$(COFF)"
@@ -97,13 +95,21 @@ migrate-dev:
 	@echo -e "$(CYAN)Running django migrations in development:$(COFF)"
 	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py migrate $(cmd)
 
-load-user-data:
+load-admin-data-dev:
 	@echo -e "$(CYAN)Populating initial data from Django fixtures:$(COFF)"
-	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py loaddata useraccounts/fixtures/initial.json
+	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py loaddata onyeshamap/fixtures/admin_user.json
+
+load-admin-data:
+	@echo -e "$(CYAN)Populating initial data from Django fixtures:$(COFF)"
+	@docker-compose -f docker-compose.yml run --rm web python ./manage.py loaddata onyeshamap/fixtures/admin_user.json
+
+load-geospatial-data-dev:
+	@echo -e "$(CYAN)Populating initial GIS data from Django fixtures:$(COFF)"
+	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py shell -c "from onyeshamap import loadbusstops; loadbusstops.run()"
 
 load-geospatial-data:
 	@echo -e "$(CYAN)Populating initial GIS data from Django fixtures:$(COFF)"
-	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py loaddata website/fixtures/initial.json
+	@docker-compose -f docker-compose.yml run --rm web python ./manage.py shell -c "from onyeshamap import loadbusstops; loadbusstops.run()"
 
 superuser:
 	@echo -e "$(CYAN)Creating superuser:$(COFF)"
@@ -156,15 +162,3 @@ lint:
 lint-fix:
 	@echo -e "$(CYAN)Running Black formatting:$(COFF)"
 	@docker-compose -f docker-compose-dev.yml run --rm web black .
-
-test-project:
-	@echo -e "$(CYAN)Running all automatic django tests:$(COFF)"
-	@docker-compose -f docker-compose-dev.yml run --rm web python manage.py test
-
-test-website:
-	@echo -e "$(CYAN)Running automatic django tests on website app:$(COFF)"
-	@docker-compose -f docker-compose-dev.yml run --rm web python manage.py test website.tests
-
-test-users:
-	@echo -e "$(CYAN)Running automatic django tests on users app:$(COFF)"
-	@docker-compose -f docker-compose-dev.yml run --rm web python manage.py test users.tests
