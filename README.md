@@ -97,7 +97,7 @@ These are steps that one should take towards deploying this project successfully
 
 1. Clone the repository to your local machine.
    ```shell
-   git clone  https://github.com/jkariukidev/personal-website.git
+   git clone  https://github.com/jkariukidev/nairobi-busstops.git
    ```
 2. Rename the [.env_local.sample](.env_local.sample) file to `.env` to be used by docker.
 3. Add the values for the environment variables. One of the reasons for environment variables is to avoid hard coding passwords and sensitive information on the code. The environment variables include:
