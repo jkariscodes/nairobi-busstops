@@ -59,7 +59,7 @@ This project's initial dependencies are listed in the [Pipfile](Pipfile) include
 * [__django-geojson__](https://django-geojson.readthedocs.io/) for manipulating GeoJSON with Django
 * [__django-leaflet__](https://django-leaflet.readthedocs.io/en/latest/) for adding leaflet functionality and assets to Django/GeoDjango
 * [__django-storages__](https://github.com/jschneier/django-storages) support for Amazon's S3 storage backend. Can be used with other storage backends e.g. Digital Ocean, DropBox, Google Cloud etc. 
-* [__django-cloudinary-storage__](https://github.com/klis87/django-cloudinary-storage) Package that facilitates integration with Cloudinary using [Django File Storage API](https://docs.djangoproject.com/en/4.1/ref/files/storage/)on management of media and static files.
+* [__django-cloudinary-storage__](https://github.com/klis87/django-cloudinary-storage) Package that facilitates integration with Cloudinary using [Django File Storage API](https://docs.djangoproject.com/en/4.1/ref/files/storage/)on the management of media and static files. Read more from [Cloudinary documentation](https://cloudinary.com/documentation/django_integration)
 * [__psycopg-binary__](https://www.psycopg.org/docs/) database adapter to facilitate database connectivity and other operations.
 * [__django-cors-headers__](https://github.com/adamchainz/django-cors-headers) Applied in handling the server headers required for Cross-Origin Resource Sharing (CORS).
 * [__Django Debug Toolbar__](https://django-debug-toolbar.readthedocs.io/) to help with debugging during development
@@ -72,11 +72,11 @@ This project's initial dependencies are listed in the [Pipfile](Pipfile) include
 * [__coverage__](https://coverage.readthedocs.io/) for measuring code coverage (TODO)
 
 ## Installation
-The minimum requirements required to deploy this project is [Docker Engine](). Docker Engine contains docker, [docker compose]() and if on a Desktop environment and prefer a graphical user interface, once can make use of [Docker Desktop]().
+The minimum requirement required to deploy this project is [Docker Engine](). Docker Engine contains docker, [docker compose](), and if on a Desktop environment and prefer a graphical user interface, one can make use of [Docker Desktop]().
 
 [Make](https://www.gnu.org/software/make/manual/make.html) is used in this project to execute docker commands present in the [Makefile](Makefile) for the purpose of saving time that is used during executing long docker commands. This is optional but __recommended__ and can be installed using the following guides
 - [Installation on Linux](https://linuxhandbook.com/using-make/)
-- Installing make on Windows requires a bit of setup since make is not natively available on the platform. Here are the steps to follow:
+- Installing Make on Windows requires a bit of setup since Make is not natively available on the platform. Here are the steps to follow:
 
    -  Download and install the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) (WSL) from the Microsoft Store. This will allow you to run a Linux environment on your Windows machine.
 
@@ -86,11 +86,11 @@ The minimum requirements required to deploy this project is [Docker Engine](). D
 
     - In the Linux terminal, type sudo apt-get update to update the package list.
 
-    - Next, type `sudo apt-get install build-essential` to install the necessary tools for building software, including make.
+    - Next, type `sudo apt-get install build-essential to install the necessary tools for building software, including make.
 
-    - Once the installation is complete, you should be able to use make in the Linux terminal.
+    - Once the installation is complete, you should be able to use Make in the Linux terminal.
 
-Note that you will need to be familiar with using a __Linux command-line interface__ to use make on Windows.
+Note that you must be familiar with using a __Linux command-line interface__ to use make on Windows.
 
 #### Installation on Local / Development 
 These are steps that one should take towards deploying this project successfully in a local or development environment which could be in a local machine or similar. 
@@ -100,16 +100,16 @@ These are steps that one should take towards deploying this project successfully
    git clone  https://github.com/jkariukidev/nairobi-busstops.git
    ```
 2. Rename the [.env_local.sample](.env_local.sample) file to `.env` to be used by docker.
-3. Add the values for the environment variables. One of the reasons for environment variables is to avoid hard coding passwords and sensitive information on the code. The environment variables include:
-   * ``COMPOSE_PROJECT_NAME`` - The name (prefix) for the docker compose services.
+3. Add the values for the environment variables. One of the reasons for environment variables is to avoid hard-coding passwords and sensitive information on the code. The environment variables include:
+   * ``COMPOSE_PROJECT_NAME`` - The name (prefix) for the docker-compose services.
    * ``SECRET_KEY`` - Django cryptography key described in detail [here](https://docs.djangoproject.com/en/4.0/ref/settings/#secret-key).
    * ``DEBUG`` - Variable used in local/development to enable debugging (hence set to ``True`` in development). Read more details [here](https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/#debug).
    * ``ALLOWED_HOSTS`` - List of host/domain names that this Django site can serve. Has been set to `localhost`.
    * ``ENGINE`` - Database backend to use. This project uses PostgreSQL backend by default but can be changed in the environment variables.
    * ``POSTGRES_USER`` - Specifies a user with superuser privileges and a database with the same name. Postgres uses the default user when this is empty.
    * ``POSTGRES_PASSWORD`` - Postgres requires a password to function properly, which is the purpose of this mandatory variable.
-   * ``POSTGRES_PORT`` - Network port used by the database also defined in the docker-compose files.
-   * ``POSTGRES_HOST`` - Network host used by the database also defined in the docker-compose files.
+   * ``POSTGRES_PORT`` - Network port used by the database is also defined in the docker-compose files.
+   * ``POSTGRES_HOST`` - The network host used by the database is also defined in the docker-compose files.
    * ``GIS_DB_USER`` - Specifies a database user to be used in this project separate from the database superuser above.
    * ``GIS_DB_PASSWORD`` - Geodatabase's password.
    * ``GIS_DB_NAME`` - Refers to the geodatabase name.
@@ -126,7 +126,7 @@ These are steps that one should take towards deploying this project successfully
    ```shell
    make migrate-dev
    ```
-   in the event [mywebgis models](onyeshamap/models.py) are altered, one can update migrations which generates the SQL commands for apps by running
+   in the event [mywebgis models](onyeshamap/models.py) are altered, one can update migrations which generate the SQL commands for apps by running
    ```shell
    make makemigrations-dev
    ```
@@ -151,23 +151,23 @@ These are steps that one should take towards deploying this project successfully
     * `make logs-interactive-dev` - Show logs interactively
 12. On shutting down the development server, run the following.
     * `make shutdown-dev` which stops the running containers (web and database)
-    * `make shutdown-volumes-dev` which stops the running containers and deletes volumes which contain persisted data.
+    * `make shutdown-volumes-dev` which stops the running containers and deletes volumes that contain persisted data.
 
 #### Installation on Production
-These are steps that one should take towards deploying this project successfully in a production environment which could be in a cloud virtual machine (VM) making the project accessible through the internet. Some variable names are the same as the ones in development environment and have not been repeated below i.e. database environment variables.
+These are steps that one should take towards deploying this project successfully in a production environment which could be in a cloud virtual machine (VM) making the project accessible through the internet. Some variable names are the same as the ones in the development environment and have not been repeated below i.e. database environment variables.
 
 1. Clone this project using `git clone ` command.
       ```shell
      git clone https://github.com/jkariukidev/my-demo-website.git
      ```
   2. Navigate into the cloned project folder and using a terminal/shell or otherwise, rename the [env_prod.sample](.env_prod.sample) to `.env` in production to be recognized by docker.
-  3. Edit the environment variables as required and ensure you do not share passwords and secure keys with the public. The additional environment variables for production include:
-     * ``COMPOSE_PROJECT_NAME`` - The name (prefix) for the docker compose services.
+  3. Edit the environment variables as required and ensure you do not share passwords and security keys with the public. The additional environment variables for production include:
+     * ``COMPOSE_PROJECT_NAME`` - The name (prefix) for the docker-compose services.
      * ``DEBUG`` - Must be set to `False` to avoid leaking sensitive project and server information displayed during development.
      * ``ALLOWED_HOSTS`` - List of host/domain names that this Django site can serve. Has been set to your domain otherwise the website may not be accessed.
-     * ``USE_CLOUDINARY`` - Variable with Boolean value that directs the app to use Cloudinary settings for static files management.
+     * ``USE_CLOUDINARY`` - Variable with a Boolean value that directs the app to use Cloudinary settings for static files management.
      * ``CLOUDINARY_CLOUD_NAME`` - Variable pointing to the name of the cloud provided by [cloudinary](https:://cloudinary.com)
-     * ``CLOUDINARY_API_KEY`` - Mandatory API key associated with a given cloudinary account.
+     * ``CLOUDINARY_API_KEY`` - Mandatory API key associated with a given Cloudinary account. Please refer to the [Cloudinary documentation](https://cloudinary.com/documentation/django_integration) for more.
      * ``CLOUDINARY_API_SECRET`` - Secret key associated with the `CLOUDINARY_API_KEY`
      * ``CLOUDINARY_URL`` - Combination of the `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` and `CLOUDINARY_CLOUD_NAME` which consists of the Cloudinary URL.
      * ``USE_S3`` - Variable with Boolean value that directs the app to use Amazon Web Services (AWS) S3 settings for static files management.
