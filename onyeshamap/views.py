@@ -1,8 +1,10 @@
-from django.views.generic import TemplateView
+from rest_framework import viewsets
+
+from .models import BusStops
+
+from .serializers import BusStopSerializer
 
 
-class WebMapView(TemplateView):
-    """
-    View for the web map.
-    """
-    template_name = 'webmap.html'
+class BusStopViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = BusStops.objects.all()
+    serializer_class = BusStopSerializer
