@@ -5,7 +5,7 @@
 ![image](https://user-images.githubusercontent.com/23359514/183810750-2aaad2ef-1f9c-4637-a572-f1cf353e12c7.png)
 
 ---
-A simple Web GIS application developed in Django and Leaflet. This app renders bus stops from the database and parses them into a leaflet map.
+A simple Web GIS application developed in Django, Django REST framework, and Leaflet. This app renders bus stops from the database and parses them into a leaflet map.
 
 ## Table of Contents
   - [Description](#description)
@@ -19,7 +19,7 @@ A simple Web GIS application developed in Django and Leaflet. This app renders b
   - [References](#references)
 
 ## Description
-This is a simple web geographic information systems (GIS) application that demonstrates full-stack GIS web development using Django, Leaflet, vanilla JavaScript, CSS and HTML and one that can be forked and customized to your preference.
+This is a simple web geographic information systems (GIS) application that demonstrates full-stack GIS web development using Django, Django REST framework, JavaScript, CSS and HTML and one that can be forked and customized to your preference.
 
 # Requirements
 1. Python - https://www.python.org/downloads/
@@ -44,8 +44,8 @@ Features present in this project include:
 ### Software and Tools
 
 Software used in the development of this project include:
-  - **[Python](https://www.python.org/downloads/release/python-3810/)** - Core programming language used in the development of this project. Specific version is referenced in the [development](Dockerfile-dev) and [production](Dockerfile) build configurations.
-  - **[Django](https://docs.djangoproject.com/en/4.0/topics/install/)** - Python web development framework that is the main framework used in this project.
+  - **[Python](https://www.python.org/downloads/release/python-31012/)** - Core programming language used in the development of this project. Specific version is referenced in the [development](Dockerfile-dev) and [production](Dockerfile) build configurations.
+  - **[Django](https://docs.djangoproject.com/en/4.2/topics/install/)** - Python web development framework that is the main framework used in this project.
   - **[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)** - Used for version control in development of this project.
   - **[Docker Desktop Windows](https://docs.docker.com/desktop/windows/install/)** - Software for handling development operations (DevOps) using graphical user interface (GUI) in Windows. Installs Docker Command Line Interface, Docker Compose etc.
   - **[Docker Desktop Linux](https://docs.docker.com/desktop/linux/install/)** - Software for handling development operations (DevOps) using graphical user interface (GUI) in Linux.
@@ -55,6 +55,8 @@ Software used in the development of this project include:
 
 This project's initial dependencies are listed in the [Pipfile](Pipfile) include: 
 * [__Django__](https://docs.djangoproject.com/) as the base framework
+* [__django-rest-framework__](https://www.django-rest-framework.org) for REST api functionalities.
+* [__django-rest-framework-gis__](https://github.com/openwisp/django-rest-framework-gis) To provide Geographic add-ons for Django REST Framework.
 * [__django-environ__](https://django-environ.readthedocs.org/) for management of environment variables
 * [__django-geojson__](https://django-geojson.readthedocs.io/) for manipulating GeoJSON with Django
 * [__django-leaflet__](https://django-leaflet.readthedocs.io/en/latest/) for adding leaflet functionality and assets to Django/GeoDjango
@@ -102,8 +104,8 @@ These are steps that one should take towards deploying this project successfully
 2. Rename the [.env_local.sample](.env_local.sample) file to `.env` to be used by docker.
 3. Add the values for the environment variables. One of the reasons for environment variables is to avoid hard-coding passwords and sensitive information on the code. The environment variables include:
    * ``COMPOSE_PROJECT_NAME`` - The name (prefix) for the docker-compose services.
-   * ``SECRET_KEY`` - Django cryptography key described in detail [here](https://docs.djangoproject.com/en/4.0/ref/settings/#secret-key).
-   * ``DEBUG`` - Variable used in local/development to enable debugging (hence set to ``True`` in development). Read more details [here](https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/#debug).
+   * ``SECRET_KEY`` - Django cryptography key described in detail [here](https://docs.djangoproject.com/en/4.2/ref/settings/#secret-key).
+   * ``DEBUG`` - Variable used in local/development to enable debugging (hence set to ``True`` in development). Read more details [here](https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/#debug).
    * ``ALLOWED_HOSTS`` - List of host/domain names that this Django site can serve. Has been set to `localhost`.
    * ``ENGINE`` - Database backend to use. This project uses PostgreSQL backend by default but can be changed in the environment variables.
    * ``POSTGRES_USER`` - Specifies a user with superuser privileges and a database with the same name. Postgres uses the default user when this is empty.
@@ -134,7 +136,7 @@ These are steps that one should take towards deploying this project successfully
     ```shell
       make load-geospatial-data-dev
       ```
-8. __Optional__: Load initial admin login data making use of [django fixtures](https://docs.djangoproject.com/en/4.1/howto/initial-data/). 
+8. __Optional__: Load initial admin login data making use of [django fixtures](https://docs.djangoproject.com/en/4.2/howto/initial-data/). 
    * Admin - This creates a default superuser (testadmin) and a standard user (testuser). The superuser can log into the Django admin panel and change settings etc.
       ```shell
       make load-admin-data-dev
@@ -183,7 +185,7 @@ These are steps that one should take towards deploying this project successfully
      ```
      make runserver
      ```
-  5. Propagate models into your database schema using the [migrate command](https://docs.djangoproject.com/en/4.0/ref/django-admin/#migrate). Note
+  5. Propagate models into your database schema using the [migrate command](https://docs.djangoproject.com/en/4.2/ref/django-admin/#migrate). Note
      that this command is being run inside the docker web container. Refer for more on [exec docker command](https://docs.docker.com/engine/reference/commandline/compose_exec/).
      ```
      make migrate
