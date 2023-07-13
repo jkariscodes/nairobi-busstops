@@ -5,6 +5,7 @@ from django.contrib.gis.db import models
 
 # Create your models here.
 
+
 class BusStops(models.Model):
     _id = models.IntegerField()
     stop_id = models.CharField(max_length=254)

@@ -44,15 +44,15 @@ if USE_WHITENOISE:
     MEDIA_ROOT = BASE_DIR / "mediafiles"
 USE_S3 = env("USE_S3")
 if USE_S3:
-    INSTALLED_APPS.extend(['storages'])
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
-    AWS_LOCATION = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    DEFAULT_FILE_STORAGE = 'PersonalWebsite.storage_backends.MediaStorage'
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    INSTALLED_APPS.extend(["storages"])
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+    AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN")
+    AWS_LOCATION = os.environ.get("AWS_S3_CUSTOM_DOMAIN")
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    DEFAULT_FILE_STORAGE = "PersonalWebsite.storage_backends.MediaStorage"
+    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, "static"),
     ]
@@ -64,13 +64,29 @@ if USE_CLOUDINARY:
         "CLOUD_NAME": env("CLOUDINARY_CLOUD_NAME"),
         "API_KEY": env("CLOUDINARY_API_KEY"),
         "API_SECRET": env("CLOUDINARY_API_SECRET"),
-        'SECURE': True,
-        'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'jpc', 'jp2', 'j2k', 'wdp', 'jxr',
-                                     'hdp', 'png', 'gif', 'webp', 'bmp', 'tif', 'tiff', 'ico'],
+        "SECURE": True,
+        "STATIC_IMAGES_EXTENSIONS": [
+            "jpg",
+            "jpe",
+            "jpeg",
+            "jpc",
+            "jp2",
+            "j2k",
+            "wdp",
+            "jxr",
+            "hdp",
+            "png",
+            "gif",
+            "webp",
+            "bmp",
+            "tif",
+            "tiff",
+            "ico",
+        ],
     }
     CLOUDINARY_URL = env("CLOUDINARY_URL")
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
     STATIC_URL = "static/"
     MEDIA_URL = "/media/"
     STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -87,4 +103,3 @@ X_FRAME_OPTIONS = "DENY"
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-
