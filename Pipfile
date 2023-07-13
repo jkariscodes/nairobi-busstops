@@ -17,6 +17,8 @@ django-storages = "~=1.13.2"
 boto3 = "~=1.28.2"
 django-cloudinary-storage = "~=0.3.0"
 gunicorn = "~=20.1.0"
+djangorestframework-gis = "~=1.0"
+djangorestframework = "~=3.14.0"
 
 [dev-packages]
 black = "~=23.7.0"
