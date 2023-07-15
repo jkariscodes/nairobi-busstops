@@ -12,6 +12,8 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+dist-ssr
+*.local
 downloads/
 eggs/
 .eggs/
@@ -312,6 +314,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+!.vscode/extensions.json
 
 # yarn v2
 .yarn/cache
@@ -328,6 +331,13 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
+
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 
