@@ -31,6 +31,8 @@ function App() {
   }
   const busstops = data && !error ? data : {};
     return (
+        <>
+            <h1>Nairobi Bus Stops</h1>
             <MapContainer center={position} zoom={zoom} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -50,6 +52,7 @@ function App() {
                     </Marker>
                 ))}
       </MapContainer>
+            </>
   );
 }
 
