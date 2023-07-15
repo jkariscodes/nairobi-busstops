@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import WebMapView, BusStopViewSet
+from .views import BusStopViewSet
 from djgeojson.views import GeoJSONLayerView
 from .models import BusStops
 
