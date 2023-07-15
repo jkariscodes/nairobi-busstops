@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   database:
-    image: geonode/postgis:13
+    image: geonode/postgis:15
     container_name: db4${COMPOSE_PROJECT_NAME}
     environment:
         - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
