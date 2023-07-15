@@ -2,7 +2,7 @@
 
 ---
 
-![image](https://user-images.githubusercontent.com/23359514/183810750-2aaad2ef-1f9c-4637-a572-f1cf353e12c7.png)
+![nairobi-bus-stops](https://github.com/jkariscodes/nairobi-busstops/assets/23359514/56a667f0-6904-4d6c-812d-e324e3a83f28)
 
 ---
 A simple Web GIS application developed in Django, Django REST framework, and Leaflet. This app renders bus stops from the database and parses them into a leaflet map.
