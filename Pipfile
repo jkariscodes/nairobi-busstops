@@ -4,26 +4,26 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "~=4.2.5"
+django = "~=4.2.6"
 django-environ = "~=0.11.2"
-django-cors-headers = "~=4.2.0"
-whitenoise = "~=6.5.0"
+django-cors-headers = "~=4.3.0"
+whitenoise = "~=6.6.0"
 django-leaflet = "~=0.29.0"
 dj-database-url = "~=2.1.0"
 psycopg = "~=3.1.12"
 psycopg-binary = "~=3.1.12"
 django-geojson = "~=4.0.0"
 django-storages = "~=1.14.1"
-boto3 = "~=1.28.59"
+boto3 = "~=1.28.65"
 django-cloudinary-storage = "~=0.3.0"
 gunicorn = "~=21.2.0"
 djangorestframework-gis = "~=1.0"
 djangorestframework = "~=3.14.0"
 
 [dev-packages]
-black = "~=23.9.1"
-django-debug-toolbar = "~=4.1.0"
-faker = "~=19.6.2"
+black = "~=23.10.0"
+django-debug-toolbar = "~=4.2.0"
+faker = "~=19.10.0"
 coverage = "~=7.3.2"
 
 [requires]
